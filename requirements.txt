@@ -1,5 +1,5 @@
 discord.py[voice]==2.3.2
-requests==2.31.0
+requests==2.32.0
 emoji==2.0.0
 redis==3.5.3
 yt-dlp==2023.12.30
