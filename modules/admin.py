@@ -7,6 +7,9 @@ from env import ADMIN_IDS
 from modules import bot
 
 
+QUOTES_CHANNEL_ID = 871496158474821654
+
+
 def _check_admin(user_id: int) -> bool:
 	return user_id in ADMIN_IDS
 
@@ -14,12 +17,16 @@ def _check_admin(user_id: int) -> bool:
 @bot.command()
 async def purge(ctx: Context):
 	author = ctx.author
-	if _check_admin(author.id):
-		# only 100 messages
-		await ctx.channel.purge()
-		await ctx.send(f'{author.mention} Purge successful.')
+	if not ctx.channel.id == QUOTES_CHANNEL_ID:
+		if _check_admin(author.id):
+			# only 100 messages
+			await ctx.channel.purge()
+			await ctx.send(f'{author.mention} Purge successful.')
+		else:
+			await ctx.send(f'{author.mention} You do not have permission to do that.')
 	else:
-		await ctx.send(f'{author.mention} You do not have permission to do that.')
+		await ctx.send(f'{author.mention} HAHAHAHAHAHA. You thought you could purge the quotes!\n'
+					   f'@everyone Look at them. Laugh at them. Shame them.')
 
 
 @bot.command()
