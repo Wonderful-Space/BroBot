@@ -2,7 +2,7 @@ discord.py[voice]==2.3.2
 requests==2.31.0
 emoji==2.0.0
 redis==3.5.3
-yt-dlp==2023.12.30
+yt-dlp==2024.7.1
 pytz==2022.1
 recurrent==0.4.1
 asyncpraw==7.5.0
